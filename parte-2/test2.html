@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aprenda Python com IA — Asimov Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">ASIMOV<span>.</span>ACADEMY</a>
+
+  <ul class="nav-links">
+    <li><a href="#">Cursos</a></li>
+    <li><a href="#">Trilhas</a></li>
+    <li><a href="#">Comunidade</a></li>
+    <li><a href="#">Blog</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Alternar tema">
+      <span id="toggleIcon">☾</span>
+      <span id="toggleLabel">Escuro</span>
+    </button>
+    <a href="#" class="nav-cta outline">Entrar</a>
+    <a href="#" class="nav-cta">Matricule-se</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-divider"></div>
+
+  <!-- LEFT -->
+  <div class="hero-left">
+    <div class="badge">Novo &middot; Turma 2026</div>
+
+    <h1>Aprenda Python do zero e construa projetos <em>reais</em> com IA</h1>
+
+    <p class="subheadline">
+      O curso mais prático do Brasil para quem quer entrar em tecnologia sem enrolação.
+    </p>
+
+    <ul class="bullets">
+      <li class="bullet">
+        <span class="bullet-icon"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5L4 7.5L8 3" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        +40 horas de conteúdo direto ao ponto
+      </li>
+      <li class="bullet">
+        <span class="bullet-icon"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5L4 7.5L8 3" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        Projetos com Python + IA desde o módulo 1
+      </li>
+      <li class="bullet">
+        <span class="bullet-icon"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5L4 7.5L8 3" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        Suporte da comunidade com +20.000 alunos
+      </li>
+      <li class="bullet">
+        <span class="bullet-icon"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.5L4 7.5L8 3" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        Certificado reconhecido pelo mercado
+      </li>
+    </ul>
+
+    <div class="cta-group">
+      <a href="#" class="btn-primary">
+        Quero começar agora
+        <svg viewBox="0 0 16 16" fill="none"><path d="M3 8H13M9 4L13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#" class="btn-secondary">Ver o que vou aprender</a>
+    </div>
+
+    <div class="social-proof">
+      <div class="avatars">
+        <div class="avatar" style="background:#D4C4AB;">JM</div>
+        <div class="avatar" style="background:#C8B99A;">FS</div>
+        <div class="avatar" style="background:#BCA88A;">AL</div>
+        <div class="avatar" style="background:#D9CCBA;">RB</div>
+      </div>
+      <p><strong>+20.000 alunos</strong> já transformaram suas carreiras</p>
+    </div>
+  </div>
+
+  <!-- RIGHT: carousel -->
+  <div class="hero-right">
+    <div class="hero-right-bg"></div>
+    <div class="hero-right-grid"></div>
+    <div class="hero-right-dots"></div>
+    <div class="hero-right-orb1"></div>
+    <div class="hero-right-glow2"></div>
+    <div class="hero-right-stripe"></div>
+
+    <div class="carousel-wrapper">
+
+      <!-- Group navigation pills -->
+      <div class="group-nav" id="groupNav">
+        <button class="group-nav-pill active" data-group="0">Formações</button>
+        <button class="group-nav-pill" data-group="1">Trilhas</button>
+        <button class="group-nav-pill" data-group="2">Gratuito</button>
+      </div>
+
+      <div class="carousel-section" id="carouselSection">
+        <!-- header -->
+        <div class="carousel-header">
+          <div class="carousel-category">
+            <span class="cat-tag formacao" id="catTag">Formações</span>
+            <span class="cat-count" id="catCount">3 formações completas</span>
+          </div>
+          <div class="carousel-dots" id="carouselDots">
+            <span class="active"></span>
+            <span></span>
+          </div>
+        </div>
+
+        <!-- card track -->
+        <div class="carousel-viewport">
+          <div class="carousel-track" id="carouselTrack">
+            <!-- JS populates this -->
+          </div>
+        </div>
+
+        <!-- auto-progress bar -->
+        <div class="carousel-progress">
+          <div class="carousel-progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+/* ── THEME ── */
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  document.getElementById('toggleIcon').textContent  = isDark ? '☾' : '☀';
+  document.getElementById('toggleLabel').textContent = isDark ? 'Escuro' : 'Claro';
+}
+
+/* ── CAROUSEL DATA ── */
+const groups = [
+  {
+    label: 'Formações',
+    tagClass: 'formacao',
+    count: '3 formações completas',
+    pairSize: 2,
+    cards: [
+      {
+        type: 'formacao',
+        title: 'Formação Engenheiro de Agentes de IA',
+        desc: 'Saia do zero e aprenda a construir agentes avançados de IA usando Python e os mais modernos modelos de inteligência artificial do mundo.'
+      },
+      {
+        type: 'formacao',
+        title: 'Formação Analista de Dados',
+        desc: 'Saia do zero e aprenda todo o caminho para se tornar um analista de dados.'
+      },
+      {
+        type: 'formacao',
+        title: 'Formação AI Designer',
+        desc: 'Descubra como aplicar as técnicas mais avançadas do mundo de IA para criar sites com designs profissionais – e sem escrever uma única linha de código!'
+      }
+    ]
+  },
+  {
+    label: 'Trilhas',
+    tagClass: 'trilha',
+    count: '6 trilhas práticas',
+    pairSize: 2,
+    cards: [
+      {
+        type: 'trilha',
+        title: 'Automatizando tudo com n8n',
+        desc: 'Aprenda na prática e coloque sua primeira automação no ar ainda hoje. Você vai dominar a ferramenta de automação mais utilizada do mundo sem precisar programar.'
+      },
+      {
+        type: 'trilha',
+        title: 'Dashboards Interativos com Python',
+        desc: 'Construa aplicativos web e dashboards usando apenas Python. Domine a criação de sistemas web modernos para análise de dados que rodam no navegador.'
+      },
+      {
+        type: 'trilha',
+        title: 'Visão Computacional',
+        desc: 'Aprenda a criar sistemas inteligentes com imagens e vídeos. Crie aplicativos que analisem vídeos e imagens usando inteligência artificial e Python.'
+      },
+      {
+        type: 'trilha',
+        title: 'Engenharia de Dados',
+        desc: 'Domine os fundamentos de Engenharia de Dados e construa seu primeiro pipeline com Python. Do zero até o deploy na nuvem com ferramentas usadas no mercado.'
+      },
+      {
+        type: 'trilha',
+        title: 'Python para Web',
+        desc: 'Domine o desenvolvimento web e crie seu primeiro site com Python e Django. Construa, versione e publique sistemas reais.'
+      },
+      {
+        type: 'trilha',
+        title: 'Data Science & Machine Learning',
+        desc: 'Explore dados, desenvolva modelos preditivos e extraia insights valiosos para impulsionar a tomada de decisões com Python.'
+      }
+    ]
+  },
+  {
+    label: 'Conteúdo Gratuito',
+    tagClass: 'free',
+    count: '3 cursos grátis',
+    pairSize: 2,
+    cards: [
+      {
+        type: 'free',
+        title: 'Aprenda o essencial de Python e crie um Aplicativo Web em 2h',
+        desc: 'Saia do zero em Python e crie seu primeiro projeto real usando as bibliotecas Streamlit e Pandas.'
+      },
+      {
+        type: 'free',
+        title: 'Aprenda a criar um Chatbot de Inteligência Artificial do zero',
+        desc: 'Em menos de 5 horas, você vai construir um bot de IA que analisa PDFs, sites e vídeos do YouTube.'
+      },
+      {
+        type: 'free',
+        title: 'Aprenda a fazer uma análise de dados profissional com Python',
+        desc: 'Saia do zero e aprenda a organizar, analisar e visualizar dados reais com a biblioteca Pandas.'
+      }
+    ]
+  }
+];
+
+/* ── CAROUSEL STATE ── */
+let groupIndex  = 0;
+let cardIndex   = 0;
+let progress    = 0;
+let rafId       = null;
+let lastTime    = null;
+let paused      = false;
+const DURATION  = 5000; // ms per slide
+
+const track        = document.getElementById('carouselTrack');
+const catTag       = document.getElementById('catTag');
+const catCount     = document.getElementById('catCount');
+const dotsEl       = document.getElementById('carouselDots');
+const progressFill = document.getElementById('progressFill');
+
+function buildCard(card) {
+  const label = card.type === 'formacao' ? 'Formação' : card.type === 'trilha' ? 'Trilha' : 'Gratuito';
+  return `
+    <div class="content-card">
+      <span class="card-type-tag ${card.type}">${label}</span>
+      <p class="content-card-title">${card.title}</p>
+      <p class="content-card-desc">${card.desc}</p>
+      <div class="card-arrow">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 7h10M8 3l4 4-4 4"/>
+        </svg>
+      </div>
+    </div>`;
+}
+
+function countSlides(g) {
+  return Math.ceil(g.cards.length / 2);
+}
+
+function buildDots(total, active) {
+  return Array.from({length: total}, (_, i) =>
+    `<span${i === active ? ' class="active"' : ''}></span>`
+  ).join('');
+}
+
+function updateGroupNavPills() {
+  document.querySelectorAll('.group-nav-pill').forEach((pill, i) => {
+    pill.classList.toggle('active', i === groupIndex);
+  });
+}
+
+function renderGroup(gIdx, cIdx, animate) {
+  const g = groups[gIdx];
+  const cards = g.cards;
+
+  catTag.className = 'cat-tag ' + g.tagClass;
+  catTag.textContent = g.label;
+  catCount.textContent = g.count;
+
+  const totalSlides = countSlides(g);
+  const slideIdx = Math.floor(cIdx / 2);
+  dotsEl.innerHTML = buildDots(totalSlides, slideIdx);
+
+  updateGroupNavPills();
+
+  const a = cards[cIdx % cards.length];
+  const b = cards[(cIdx + 1) % cards.length];
+
+  const newHTML = buildCard(a) + (b ? buildCard(b) : '');
+
+  if (animate) {
+    track.style.transition = 'opacity 0.25s ease, transform 0.3s ease';
+    track.style.opacity = '0';
+    track.style.transform = 'translateY(8px)';
+    setTimeout(() => {
+      track.innerHTML = newHTML;
+      track.style.transition = 'none';
+      track.style.transform = 'translateY(-8px)';
+      track.style.opacity = '0';
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        track.style.transition = 'opacity 0.35s ease, transform 0.4s cubic-bezier(0.2,0,0.2,1)';
+        track.style.transform = 'translateY(0)';
+        track.style.opacity = '1';
+      }));
+    }, 280);
+  } else {
+    track.innerHTML = newHTML;
+    track.style.transform = 'translateY(0)';
+    track.style.opacity = '1';
+  }
+}
+
+function advance() {
+  const g = groups[groupIndex];
+  cardIndex += 2;
+  if (cardIndex >= g.cards.length) {
+    cardIndex = 0;
+    groupIndex = (groupIndex + 1) % groups.length;
+  }
+  renderGroup(groupIndex, cardIndex, true);
+  progress = 0;
+}
+
+function jumpToGroup(gIdx) {
+  groupIndex = gIdx;
+  cardIndex = 0;
+  progress = 0;
+  renderGroup(groupIndex, cardIndex, true);
+}
+
+function tick(ts) {
+  if (!lastTime) lastTime = ts;
+  const delta = ts - lastTime;
+  lastTime = ts;
+  if (!paused) {
+    progress += delta;
+    const pct = Math.min((progress / DURATION) * 100, 100);
+    progressFill.style.width = pct + '%';
+    if (progress >= DURATION) {
+      progress = 0;
+      advance();
+    }
+  }
+  rafId = requestAnimationFrame(tick);
+}
+
+/* group nav pill clicks */
+document.querySelectorAll('.group-nav-pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    jumpToGroup(parseInt(pill.dataset.group));
+  });
+});
+
+/* pause on hover */
+const section = document.getElementById('carouselSection');
+section.addEventListener('mouseenter', () => { paused = true; lastTime = null; });
+section.addEventListener('mouseleave', () => { paused = false; lastTime = null; });
+
+/* init */
+renderGroup(0, 0, false);
+rafId = requestAnimationFrame(tick);
+</script>
+</body>
+</html>
